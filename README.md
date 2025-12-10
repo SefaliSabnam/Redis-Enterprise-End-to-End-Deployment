@@ -1,88 +1,82 @@
-Redis Enterprise: Multi-Node HA Cluster Deployment with Persistence, Failover & Performance Benchmarking
+# 📘 Redis Enterprise: Multi-Node HA Cluster Deployment with Persistence, Failover & Performance Benchmarking
 
-Project Overview
+This project demonstrates the complete deployment and operational management of a **three-node Redis Enterprise cluster** with:
 
-This project demonstrates the complete deployment and operational management of a three-node Redis Enterprise cluster with:
+- High Availability (HA)
+- Replication
+- AOF/RDB persistence
+- AWS S3 backups
+- Performance benchmarking
+- Data recovery validation
 
-High Availability (HA)
+All tasks were executed on **Ubuntu 22.04 LTS VMs** running inside **Oracle VirtualBox**, following Redis Enterprise best practices.
 
-Replication
+---
 
-AOF/RDB persistence
+# 📚 Table of Contents
 
-AWS S3 backups
+- [Architecture Diagram](#architecture-diagram)
+- [1. Environment Setup](#1-environment-setup)
+- [2. Installing Redis Enterprise](#2-installing-redis-enterprise-software)
+- [3. Cluster Creation](#3-cluster-creation)
+- [4. Database Configuration](#4-database-configuration)
+- [5. Backup Configuration](#5-backup-configuration)
+- [6. Benchmarking](#6-benchmarking)
+- [7. Adding Test Data](#7-adding-test-data)
+- [8. Resilience Test](#8-resilience-test)
+- [9. Data Recovery](#9-data-recovery)
+- [Conclusion](#conclusion)
+- [Repository Structure](#repository-structure)
 
-Performance benchmarking
+---
 
-Data recovery validation
+# 📌 Architecture Diagram
 
-All tasks were executed on Ubuntu 22.04 LTS VMs running inside Oracle VirtualBox, following Redis Enterprise best practices.
-
-Table of Contents
-
-Architecture Diagram
-
-Environment Setup
-
-Installing Redis Enterprise
-
-Cluster Creation
-
-Database Configuration
-
-Backup Configuration
-
-Benchmarking
-
-Adding Test Data
-
-Resilience Test
-
-Data Recovery
-
-Conclusion
-
-Repository Structure
-
- Architecture Diagram
 ![Redis Enterprise Multi-Node Cluster Architecture](Redis-Architecture.png)
 
-## 1. Environment Setup
+---
 
-A three-node Redis Enterprise cluster was deployed using Oracle VirtualBox, each running Ubuntu 22.04 LTS.
+# ## 1. Environment Setup
 
-Virtual Machines
-VM Name	Purpose
-Redis-CloudOps-L1	Node 1 (Cluster Initiator)
-Redis-CloudOps-L1-node2	Node 2
-Redis-CloudOps-L1-node3	Node 3
+A **three-node Redis Enterprise cluster** was deployed using **Oracle VirtualBox**, each running **Ubuntu 22.04 LTS**.
+
+### Virtual Machines
+
+| VM Name                     | Purpose                |
+|----------------------------|-------------------------|
+| Redis-CloudOps-L1          | Node 1 (Cluster Initiator) |
+| Redis-CloudOps-L1-node2    | Node 2                 |
+| Redis-CloudOps-L1-node3    | Node 3                 |
 
 Each VM included:
 
-Proper network configuration
-
-Static IP assignment
-
-System dependencies
-
-SSH access
+- Proper network configuration  
+- Static IP assignment  
+- System dependencies  
+- SSH access  
 
 All machines were prepared to ensure stable inter-node communication.
 
-## 2. Installing Redis Enterprise Software
+---
+
+# ## 2. Installing Redis Enterprise Software
 
 Downloaded from Redis Enterprise Download Center:
 
-GPG-KEY-redislabs-packages.gpg
-
-redislabs-8.0.2-17-jammy-amd64 installation binary
+- `GPG-KEY-redislabs-packages.gpg`
+- `redislabs-8.0.2-17-jammy-amd64` installation binary
 
 Files were transferred using WinSCP.
 
-Installation Process
+---
+
+### Installation Process
+
+```bash
 gpg --import GPG-KEY-redislabs-packages.gpg
 sudo chmod +x install.sh
 sudo ./install.sh
+
 
 DNS Fix for Installer
 
