@@ -1,4 +1,4 @@
-# 📘 Redis Enterprise: Multi-Node HA Cluster Deployment with Persistence, Failover & Performance Benchmarking
+#  Redis Enterprise: Multi-Node HA Cluster Deployment with Persistence, Failover & Performance Benchmarking
 
 This project demonstrates the complete deployment and operational management of a **three-node Redis Enterprise cluster** with:
 
@@ -13,7 +13,7 @@ All tasks were executed on **Ubuntu 22.04 LTS VMs** running inside **Oracle Virt
 
 ---
 
-# 📚 Table of Contents
+#  Table of Contents
 
 - [Architecture Diagram](#architecture-diagram)
 - [1. Environment Setup](#1-environment-setup)
@@ -30,7 +30,7 @@ All tasks were executed on **Ubuntu 22.04 LTS VMs** running inside **Oracle Virt
 
 ---
 
-# 📌 Architecture Diagram
+#  Architecture Diagram
 
 ![Redis Enterprise Multi-Node Cluster Architecture](Redis-Architecture.png)
 
