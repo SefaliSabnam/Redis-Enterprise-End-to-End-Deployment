@@ -26,7 +26,7 @@ All tasks were executed on **Ubuntu 22.04 LTS VMs** running inside **Oracle Virt
 - [8. Resilience Test](#8-resilience-test)
 - [9. Data Recovery](#9-data-recovery)
 - [Conclusion](#conclusion)
-- [Repository Structure](#repository-structure)
+
 
 ---
 
